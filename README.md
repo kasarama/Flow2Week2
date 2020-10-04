@@ -6,6 +6,7 @@ In this repository :
   - tasks from Tueasday
   - tasks from Wednesday
   - task from Thuersday : frontend
+  
 Backend (deployed) from previous week: 
   -  https://selself.com/person/
   -  https://github.com/kasarama/Flow2Week2Thursday
