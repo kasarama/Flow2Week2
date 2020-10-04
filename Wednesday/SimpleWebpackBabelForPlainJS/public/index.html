@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Webpack/Babel-demo</title>
+</head>
+
+<body>
+  <ul id="menu" class="header">
+    <li><a href="" id="about">About</a></li>
+    <li><a href="" id="ex1">Ex1</a></li>
+    <li><a href="" id="ex2">Ex2</a></li>
+    <li><a href="" id="ex3">Ex3</a></li>
+    <li><a href="" id="ex4">Ex4</a></li>
+
+  </ul>
+
+  <div class="content">
+
+    <!-- This is were you should place your basic HTML for exercise-1 -->
+    <div id="ex1_html" style="display:none;">
+      <h3>Exercise 1</h3>
+      <p>All jokes: </p>
+      <ul id="jokes"></ul>
+
+    </div>
+    <!-- End of HTML for exercise-1 -->
+
+
+
+    <!-- This is were you should place your basic HTML for exercise-2 -->
+    <div id="ex2_html" style="display:none;">
+      <h3>Exercise 2</h3>
+      <p>Search for a joke by it's id:</p>
+      <input type="number" min=0 style="width : 50px;" class="form-control" id="jokeId" >
+      <button type="submit" class="btn btn- active" id="findJokeById">Search</button>
+      <h2 id = "chosenJoke"></h2>
+      <h3 id = "value"></h3>
+
+      
+      <button type="button" class="btn btn-active" id="findQuote">Get quote</button>
+      <p id="quote"></p>
+      
+
+    </div>
+    <!-- End of HTML for exercise-2 -->
+
+    <div id="ex3_html" style="display:none;">
+      <h3>Ex-3</h3>
+      <p id="ex3p">Type your joke belov</p>
+      <div id="ex3div">
+        <input type="text" min=0 class="form-control" id="newJoke" >
+        <button type="submit" class="btn btn-active" id="addJoke">Add</button>
+
+       </div>
+    </div>
+
+    <!-- This is were you should place your basic HTML for exercise-4 -->
+    <div id="ex4_html" style="display:none;">
+      <h3>Ex-4</h3>
+      <p>Add your basic HTML for Exercise 4 here</p>
+
+      <div class="row" style="min-height: 5em;">
+      <div class="col-md-8 pre-scrollable" style="background-color: lightgrey;">
+        <h5>All Users</h5>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Id</th>
+              <th>Age</th>
+              <th>Name</th>
+              <th>Gender</th>
+              <th>Email </th>
+            </tr>
+          </thead>
+          <tbody id="allUserRows">
+          <tbody>
+        </table>
+      </div>
+      <div class="col-md-4" style="background-color: powderblue;">
+        <table class="table" id="foundUser">
+        </table>
+        <h5 id="findUserHeader">Find User</h5>
+        
+          <div class="form-group">
+            <label for="idToFind">User's ID:</label>
+            <input type="number" min=1 class="form-control" id="idToFind">
+          </div>          
+          <button type="button" class="btn btn-secondary" id="findUserById">Find User</button>
+       
+      </div>
+    </div>
+    
+    <div class="row" style="min-height: 5em;">
+      <div class="col-md-4" style="background-color: powderblue;">
+        <h5>Add User</h5>
+        <form>
+          <div class="form-group">
+            <label for="email">Email address</label>
+            <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
+          </div>
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" id="name">
+          </div>
+          <div class="form-group">
+            <label for="age">Age</label>
+            <input type="number" min=3 max=99 class="form-control" id="age">
+          </div>
+          <div class="form-group">
+            <label for="gender">Gender</label>
+            <select class="form-control" id="gender">              
+              <option value="female">female</option>
+              <option value="male">male</option>              
+            </select>
+          </div>
+          <button type="button" class="btn btn-secondary" id="addUser">Add User</button>
+        </form>
+
+
+      </div>
+      <div class="col-md-4" style="background-color: lightgrey;">
+        <h5>Edit User</h5>
+        <form>
+          <div class="form-group">
+            <label for="editId">Users ID</label>
+            <input type="number" class="form-control" id="editId" aria-describedby="emailHelp">
+          </div>
+          <div class="form-group">
+            <label for="editEmail">Email address</label>
+            <input type="email" class="form-control" id="editEmail" aria-describedby="emailHelp">
+          </div>
+          <div class="form-group">
+            <label for="editName">Name</label>
+            <input type="text" class="form-control" id="editName">
+          </div>
+          <div class="form-group">
+            <label for="editAge">Age</label>
+            <input type="number" min=3 max=99 class="form-control" id="age">
+          </div>
+          <div class="form-group">
+            <label for="editGender">Gender</label>
+            <select class="form-control" id="editGender">              
+              <option value="female">female</option>
+              <option value="male">male</option>              
+            </select>
+          </div>
+          <button type="button" class="btn btn-secondary" id="editUser">Edit User</button>
+        </form>
+
+      </div>
+      <div class="col-md-4" style="background-color: powderblue;">
+        <h5>Delete User</h5>
+
+        <div class="form-group">
+          <label for="idToDelete">User's ID:</label>
+          <input type="number" min=1 class="form-control" id="idToDelete">
+        </div>          
+        <button type="button" class="btn btn-secondary" id="deleteUserById">Delete User</button>
+
+      </div>
+    </div>
+  </div>
+  <!-- End of HTML for exercise-3 -->
+
+  <!---- HTML for the About page -->
+  <div id="about_html" style="display:none;">
+    <h3>About</h3>
+    <p>Watch the small video given as intro to this code, BEFORE you start using it</p>
+  </div>
+  <!-- End of HTML for ABOUT Page -->
+
+  </div>
+
+  <!-- #################################################################-->
+  <!-- IMPORTANT  DO NOT IMPORT ANY JavaScript in this file by YOURSELF -->
+  <!-- #################################################################-->
+
+</body>
+
+</html>
