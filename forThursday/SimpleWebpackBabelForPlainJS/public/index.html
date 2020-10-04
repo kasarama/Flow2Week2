@@ -26,13 +26,14 @@
       </thead>
       <tbody id="tbody"></tbody>
     </table>
-    <button type="button" id="reload" class="btn btn-secondary">Reload Data</button>
+    <button type="button" id="reload" class="btn btn-secondary" >Reload Data</button>
     <button type="button" id="addPerson" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
       Add New Person
     </button>
-    <button type="button" id="deletePerson" class="btn btn-primary" data-toggle="modal" data-target="#myModal1">
-      Delete Person
-    </button>
+   
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalDelete">Delete Person</button>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalEdit">Edit Person</button>
+
 
     <div id="error" class="alert alert-danger" role="alert" style="width: 50%;margin-top:10px;"></div>
 
@@ -82,29 +83,89 @@
       </div>
     </div>
 
-    <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div id="header" class="modal-header">
+    
 
-          </div>          
+
+    <div class="modal fade" id="modalDelete" role="dialog">
+      <div class="modal-dialog">
+      
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Delete Person by ID</h4>
+          </div>
+          <div class="modal-body">
             <div class="form-group">
               <label for="deleteID">ID of the Person to be deleted</label>
               <input type="text" class="form-control" name="deleteID" id="deleteID">
             </div>
-
+        
             <!-- Allow form submission with keyboard without duplicating the dialog button -->
             <input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
-
+        
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+            <button type="button" id="abc" class="btn btn-default" data-dismiss="modal">Cancel</button>
             <button type="button" id="deletebtn" class="btn btn-primary" data-dismiss="modal">Delete</button>
+
+          </div>
+          </div>
+          <div class="modal-footer">
           </div>
         </div>
+        
       </div>
+
+
+
+      <div class="modal fade" id="modalEdit" role="dialog">
+        <div class="modal-dialog">
+        
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Edit Person</h4>
+            </div>
+            <div class="modal-body">
+              <div class="form-group">
+                <label for="editID">ID of the Person to be edited</label>
+                <input type="text" class="form-control" name="editID" id="editID">
+                
+                <label for="editFN">First name</label>
+                <input type="text" class="form-control" name="editFN" id="editFN">
+                
+                <label for="editLN">Last Name</label>
+                <input type="text" class="form-control" name="editLN" id="editLN">
+                
+                <label for="editPh">Phone</label>
+                <input type="text" class="form-control" name="editPh" id="editPh">
+
+                
+              </div>
+          
+              <!-- Allow form submission with keyboard without duplicating the dialog button -->
+              <input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
+          
+            </div>
+            <div class="modal-footer">
+              <button type="button"  class="btn btn-default" data-dismiss="modal">Cancel</button>
+              <button type="button" id="editbtn" class="btn btn-primary" data-dismiss="modal">Update</button>
+  
+            </div>
+            </div>
+            <div class="modal-footer">
+            </div>
+          </div>
+          
+        </div>
+
+
     </div>
+
   </div>
+
 </body>
 
 </html>

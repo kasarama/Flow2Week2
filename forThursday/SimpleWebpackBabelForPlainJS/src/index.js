@@ -3,7 +3,7 @@ import "bootstrap/dist/css/bootstrap.css"
 import "bootstrap"
 import personFacade from "./personFacade"
 
-
+function loadAll(){
 personFacade.getAll()
   .then(data => {
 
@@ -31,10 +31,18 @@ personFacade.getAll()
       console.log("Network error")
     }
   })
+}
+ 
+loadAll();
 
 
+document.getElementById("reload").addEventListener("click", function(event){
+  event.preventDefault
+  loadAll()
+})
 
 let buttAddPerson = document.getElementById("savebtn")
+
 buttAddPerson.addEventListener("click", function (event) {
   event.preventDefault
   const newPerson = {
@@ -49,11 +57,35 @@ buttAddPerson.addEventListener("click", function (event) {
 
   }
 
-  
+
   personFacade.addPerson(newPerson)
+  .then(loadAll)
     .catch(err => {
       if (err.status) {
-        err.fullError.then(e => document.getElementById("error").innerHTML=e.message)//send to innerHTML
+        err.fullError.then(e => document.getElementById("error").innerHTML = e.message)//send to innerHTML
+      }
+      else {
+        console.log("Networ error")
+      }
+    })
+    
+})
+
+
+
+// deleteID
+
+let buttDeletePerson = document.getElementById("deletebtn")
+buttDeletePerson.addEventListener("click", function (event) {
+  event.preventDefault
+  
+  const id = document.getElementById("deleteID").value
+  
+  personFacade.deletePerson(id)
+  .then(loadAll)
+    .catch(err => {
+      if (err.status) {
+        err.fullError.then(e => document.getElementById("error").innerHTML = e.message)//send to innerHTML
       }
       else {
         console.log("Networ error")
@@ -61,17 +93,23 @@ buttAddPerson.addEventListener("click", function (event) {
     })
 })
 
-// deleteID
+let buttEdit = document.getElementById("editbtn")
 
-let buttDeletePerson = document.getElementById("deletebtn")
-buttDeletePerson.addEventListener("click", function(event){
+buttEdit.addEventListener("click", function(event){
   event.preventDefault
-  const id = document.getElementById("deleteID").value
-console.log("Rammet button")
-  personFacade.deletePerson(id)
+
+  const editedPerson = {
+    id: document.getElementById("editID").value,
+    fName: document.getElementById("editFN").value,
+    lName: document.getElementById("editLN").value,
+    phone: document.getElementById("editPh").value
+  }
+
+  personFacade.editPerson(editedPerson)
+  .then(loadAll)
   .catch(err => {
     if (err.status) {
-      err.fullError.then(e => document.getElementById("error").innerHTML=e.message)//send to innerHTML
+      err.fullError.then(e => document.getElementById("error").innerHTML = e.message)//send to innerHTML
     }
     else {
       console.log("Networ error")

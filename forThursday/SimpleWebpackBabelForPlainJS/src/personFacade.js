@@ -33,14 +33,15 @@ function addPerson(person){
 }
 function editPerson(person){
     const options = makeOptions("PUT", person)
-    .then(console.log("In deletePerson"))
-    return fatch(URL, options)
+    return fetch(URL+person.id, options)
     .then(handleHttpErrors)
 }
 
 function deletePerson(id){
-    const options = makeOptions("DELETE", id)
-    return fatch(URL, options)
+    const options = makeOptions("DELETE")
+    
+    return fetch(URL+id, options)
+    
     .then(handleHttpErrors)
 }
 
